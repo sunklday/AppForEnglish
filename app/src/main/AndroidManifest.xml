@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.ReadyToLearnActivity" />
-        <activity android:name=".Activity.LearnEnglishActivity"></activity>
+        <activity android:name=".Activity.LearnEnglishActivity" />
+        <activity android:name=".Activity.LearningRecordActivity"></activity>
     </application>
 
 </manifest>
