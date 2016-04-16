@@ -3,6 +3,7 @@
 
     <group android:checkableBehavior="single">
         <item
+<<<<<<< HEAD
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="Home" />
@@ -10,6 +11,15 @@
             android:id="@+id/nav_learning_record"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Record" />
+=======
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Plan" />
+        <item
+            android:id="@+id/nav_learning_record"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="record" />
+>>>>>>> 67f261b50c24b49c335012c57e72502e0bc8899e
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"

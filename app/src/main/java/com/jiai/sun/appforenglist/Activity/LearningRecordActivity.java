@@ -11,6 +11,9 @@ public class LearningRecordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_record);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 67f261b50c24b49c335012c57e72502e0bc8899e
     }
 }

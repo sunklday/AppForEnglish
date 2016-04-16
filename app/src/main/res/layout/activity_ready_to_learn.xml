@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+<<<<<<< HEAD
     tools:context=".Activity.ReadyToLearnActivity"
     android:id="@+id/R.id">
 
@@ -32,4 +33,19 @@
         android:id="@+id/btn_startLearnEnglishActivity"
         android:text="开始学习"
         android:onClick="startLearnEnglishActivity"/>
+=======
+    tools:context=".Activity.ReadyToLearnActivity">
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="readytolearn"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/readtolearn_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_dialog_email"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+>>>>>>> 67f261b50c24b49c335012c57e72502e0bc8899e
 </RelativeLayout>
