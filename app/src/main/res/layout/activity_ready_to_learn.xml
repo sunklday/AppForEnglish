@@ -7,17 +7,29 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Activity.ReadyToLearnActivity">
+    tools:context=".Activity.ReadyToLearnActivity"
+    android:id="@+id/R.id">
+
     <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="readytolearn"/>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/readtolearn_fab"
+        android:id="@+id/txv_readyToLearnTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_dialog_email"
-        android:layout_alignParentBottom="true"
+        android:text="readytolearn" />
+    <android.support.v7.widget.RecyclerView
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txv_readyToLearnTitle"
+        android:layout_above="@+id/btn_startLearnEnglishActivity"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:id="@+id/ryv_readToLearnRecyclerView">
+    </android.support.v7.widget.RecyclerView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btn_startLearnEnglishActivity"
+        android:text="开始学习"
+        android:onClick="startLearnEnglishActivity"/>
 </RelativeLayout>

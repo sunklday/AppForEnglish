@@ -84,8 +84,9 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_home) {
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_learning_record) {
             Intent intent = new Intent(getApplicationContext(),LearningRecordActivity.class);
             startActivity(intent);
