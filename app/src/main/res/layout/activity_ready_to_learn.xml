@@ -11,10 +11,14 @@
     android:id="@+id/R.id">
 
     <TextView
+        android:paddingLeft="10dp"
         android:id="@+id/txv_readyToLearnTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="readytolearn" />
+        android:text="今日单词"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
     <android.support.v7.widget.RecyclerView
         android:scrollbars="vertical"
         android:layout_width="match_parent"

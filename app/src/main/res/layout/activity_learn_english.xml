@@ -11,5 +11,19 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="英语卡片"/>
+    android:text="ABC"
+    android:textSize="30dp"
+    android:id="@+id/txv_learnEnglishTitle"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true" />
+
+    <com.wenchao.cardstack.CardStack
+        android:layout_below="@+id/txv_learnEnglishTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding = "20dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:id="@+id/csk_englishCard">
+    </com.wenchao.cardstack.CardStack>
 </RelativeLayout>

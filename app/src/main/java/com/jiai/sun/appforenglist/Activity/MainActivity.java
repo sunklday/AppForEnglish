@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),ReadyToLearnActivity.class);
                 startActivity(intent);
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
             }
         });
 
@@ -87,6 +85,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);
+            finish();
         } else if (id == R.id.nav_learning_record) {
             Intent intent = new Intent(getApplicationContext(),LearningRecordActivity.class);
             startActivity(intent);
