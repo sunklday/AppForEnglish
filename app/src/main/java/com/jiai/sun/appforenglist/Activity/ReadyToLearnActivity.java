@@ -86,5 +86,6 @@ public class ReadyToLearnActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),LearnEnglishActivity.class);
         intent.putExtras(bundle);
         startActivity(intent);
+        finish();
     }
 }

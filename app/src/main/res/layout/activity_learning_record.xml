@@ -11,5 +11,12 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="学习记录"/>
+    android:text="学习记录"
+    android:id="@+id/txv_recordActivityTitle"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ryv_recordActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/txv_recordActivityTitle">
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

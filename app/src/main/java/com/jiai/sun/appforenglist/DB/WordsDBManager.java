@@ -87,4 +87,34 @@ public class WordsDBManager {
             db.close();
         }
     }
+
+    public void updateWord(Words words){
+
+        SQLiteDatabase db = null;
+
+        try {
+            db = dbOpenHelper.getWritableDatabase();
+            String _id = "_id=?";
+            String[] id = {words.get_id()};
+            ContentValues cv = new ContentValues();
+            cv.put("word", words.getWord());
+            cv.put("example", words.getExample());
+            cv.put("degree", words.getDegree());
+            cv.put("mean", words.getMean());
+            cv.put("category", words.getCategory());
+            cv.put("star",words.getStar());
+            db.update("words",cv,_id,id);
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+
+        /*SQLiteDatabase db=this.getWritableDatabase();
+        String where=FIELD_ID+"=?";
+        String[] whereValue={Integer.toString(id)};
+        ContentValues cv=new ContentValues();
+        cv.put(FIELD_TITLE, Title);
+        db.update(TABLE_NAME, cv, where, whereValue);*/
+    }
 }

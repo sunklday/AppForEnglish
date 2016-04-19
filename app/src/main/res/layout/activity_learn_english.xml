@@ -16,7 +16,24 @@
     android:id="@+id/txv_learnEnglishTitle"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true" />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50dp"
+        android:text="完成"
+        android:id="@+id/txv_learnEnglishActivityComeBack"
+        android:visibility="invisible"
+        android:layout_above="@+id/btn_learnEnglishActivityComeBack"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        android:id="@+id/btn_learnEnglishActivityComeBack"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="comeBack"/>
     <com.wenchao.cardstack.CardStack
         android:layout_below="@+id/txv_learnEnglishTitle"
         android:layout_width="wrap_content"
@@ -26,4 +43,5 @@
         android:clipToPadding="false"
         android:id="@+id/csk_englishCard">
     </com.wenchao.cardstack.CardStack>
+
 </RelativeLayout>
