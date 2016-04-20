@@ -11,6 +11,15 @@ public class Words {
     private String degree;
     private String category;
     private String star;
+    private String learndate;
+
+    public String getLearndate() {
+        return learndate;
+    }
+
+    public void setLearndate(String learndate) {
+        this.learndate = learndate;
+    }
 
     public String get_id() {
         return _id;

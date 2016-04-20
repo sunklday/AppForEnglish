@@ -8,10 +8,19 @@ import java.util.Date;
 public class Record {
     private String _id;
     private String userName;
-    private Date learnDate;
+    private String learnDate;
     private Integer easyWordsCount;
     private Integer starWordsCount;
     private Integer difficultWordsCount;
+    private String wordsCount;
+
+    public String getWordsCount() {
+        return wordsCount;
+    }
+
+    public void setWordsCount(String wordsCount) {
+        this.wordsCount = wordsCount;
+    }
 
     public String get_id() {
         return _id;
@@ -29,11 +38,11 @@ public class Record {
         this.userName = userName;
     }
 
-    public Date getLearnDate() {
+    public String getLearnDate() {
         return learnDate;
     }
 
-    public void setLearnDate(Date learnDate) {
+    public void setLearnDate(String learnDate) {
         this.learnDate = learnDate;
     }
 
