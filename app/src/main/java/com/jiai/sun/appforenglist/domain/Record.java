@@ -7,18 +7,18 @@ import java.util.Date;
  */
 public class Record {
     private String _id;
-    private String userName;
+    private Integer userId;
     private String learnDate;
     private Integer easyWordsCount;
     private Integer starWordsCount;
     private Integer difficultWordsCount;
-    private String wordsCount;
+    private Integer wordsCount;
 
-    public String getWordsCount() {
+    public Integer getWordsCount() {
         return wordsCount;
     }
 
-    public void setWordsCount(String wordsCount) {
+    public void setWordsCount(Integer wordsCount) {
         this.wordsCount = wordsCount;
     }
 
@@ -30,12 +30,12 @@ public class Record {
         this._id = _id;
     }
 
-    public String getUserName() {
-        return userName;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getLearnDate() {
@@ -74,11 +74,12 @@ public class Record {
     public String toString() {
         return "Record{" +
                 "_id='" + _id + '\'' +
-                ", userName='" + userName + '\'' +
-                ", learnDate=" + learnDate +
+                ", userId=" + userId +
+                ", learnDate='" + learnDate + '\'' +
                 ", easyWordsCount=" + easyWordsCount +
                 ", starWordsCount=" + starWordsCount +
                 ", difficultWordsCount=" + difficultWordsCount +
+                ", wordsCount=" + wordsCount +
                 '}';
     }
 }

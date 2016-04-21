@@ -31,8 +31,8 @@ public class ReadyToLearnRecyclerViewAdapter extends RecyclerView.Adapter<ReadyT
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         System.out.println("onBind");
-        holder.readyToLearnWord.setText(wordList.get(position).getWord());
-        holder.readyToLearnMean.setText(wordList.get(position).getMean());
+        holder.readyToLearnWord.setText(wordList.get(position).getWord().toString());
+        holder.readyToLearnMean.setText(wordList.get(position).getMean().toString());
     }
 
     @Override

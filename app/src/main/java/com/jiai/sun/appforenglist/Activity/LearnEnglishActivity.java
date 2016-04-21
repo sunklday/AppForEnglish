@@ -11,13 +11,16 @@ import android.widget.TextView;
 
 import com.jiai.sun.appforenglist.Adapter.CardStackAdapter;
 import com.jiai.sun.appforenglist.DB.DBOpenHelper;
+import com.jiai.sun.appforenglist.DB.RecordDBManager;
 import com.jiai.sun.appforenglist.DB.UserDBManager;
 import com.jiai.sun.appforenglist.DB.WordsDBManager;
 import com.jiai.sun.appforenglist.R;
+import com.jiai.sun.appforenglist.domain.Record;
 import com.jiai.sun.appforenglist.domain.Words;
 import com.wenchao.cardstack.CardStack;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LearnEnglishActivity extends AppCompatActivity {
@@ -77,12 +80,29 @@ public class LearnEnglishActivity extends AppCompatActivity {
         return wordsList;
     }
 
+    /**
+     * 点击button返回时候更新word表添加degree，更新record添加学习记录
+     * @param view
+     */
     public void comeBack(View view){
         WordsDBManager wordsDBManager = new WordsDBManager(getApplicationContext());
         for (Words word:wordsList) {
             word.setDegree("1");
             wordsDBManager.updateWord(word);
         }
+        Record record  = new Record();
+        record.setWordsCount(wordsList.size());
+        record.setUserId(1);
+        record.setDifficultWordsCount(0);
+        record.setStarWordsCount(0);
+        record.setEasyWordsCount(0);
+        record.setLearnDate(String.valueOf(new Date()));
+        RecordDBManager recordDBManager = new RecordDBManager(getApplicationContext());
+        recordDBManager.addRecord(record);
+        /**
+         * 将来添加星标单词
+         *
+         */
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
         finish();

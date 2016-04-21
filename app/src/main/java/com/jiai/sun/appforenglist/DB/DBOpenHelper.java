@@ -32,7 +32,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                     WORDSTABLE.COLUMN_NAME_EXAMPLE + TEXT_TYPE + COMMA_SEP +
                     WORDSTABLE.COLUMN_NAME_DEGREE + TEXT_TYPE + COMMA_SEP +
                     WORDSTABLE.COLUMN_NAME_STAR + TEXT_TYPE + COMMA_SEP +
-                    WORDSTABLE.COLUMN_NAME_CATEGORY + TEXT_TYPE +
+                    WORDSTABLE.COLUMN_NAME_CATEGORY + TEXT_TYPE + COMMA_SEP +
+                    WORDSTABLE.COLUMN_NAME_LEARN_DATE + TEXT_TYPE +
                     " )";
     /**
      * 建立user表sql语句
@@ -43,7 +44,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                     USERTABLE.COLUMN_NAME_USERNAME + TEXT_TYPE + COMMA_SEP +
                     USERTABLE.COLUMN_NAME_WORDSMARK + TEXT_TYPE + COMMA_SEP +
                     USERTABLE.COLUMN_NAME_AMOUNT + INTEGER_TYPE + COMMA_SEP +
-                    USERTABLE.COLUMN_NAME_WRODSLIBRARY + TEXT_TYPE +
+                    USERTABLE.COLUMN_NAME_WRODSLIBRARY + TEXT_TYPE +COMMA_SEP+
+                    USERTABLE.COLUMN_NAME_LEARN_DATE + TEXT_TYPE +
                     " )";
 
     /**
@@ -52,11 +54,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_RECORD =
             "CREATE TABLE " + RECORDTABLE.TABLE_NAME + " (" +
                     RECORDTABLE._ID + " INTEGER PRIMARY KEY," +
-                    RECORDTABLE.COLUMN_NAME_USERNAME + TEXT_TYPE + COMMA_SEP +
+                    RECORDTABLE.COLUMN_NAME_USERID + INTEGER_TYPE + COMMA_SEP +
                     RECORDTABLE.COLUMN_NAME_LEARNDATE + TEXT_TYPE + COMMA_SEP +
                     RECORDTABLE.COLUMN_NAME_EASYWORDSCOUNT + INTEGER_TYPE + COMMA_SEP +
                     RECORDTABLE.COLUMN_NAME_DIFFICULTWORDSCOUNT + INTEGER_TYPE + COMMA_SEP +
-                    RECORDTABLE.COLUMN_NAME_STARWORDSCOUNT + INTEGER_TYPE +
+                    RECORDTABLE.COLUMN_NAME_STARWORDSCOUNT + INTEGER_TYPE +COMMA_SEP+
+                    RECORDTABLE.COLUMN_NAME_WORDSCOUNT + INTEGER_TYPE +
                     " )";
 
     private static final String SQL_DELETE_WORDS =
@@ -103,7 +106,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         public static final String COLUMN_NAME_DEGREE = "degree";
         public static final String COLUMN_NAME_CATEGORY = "category";
         public static final String COLUMN_NAME_STAR = "star";
-
+        public static final String COLUMN_NAME_LEARN_DATE = "learn_date";
     }
     /**
      * 定义user表结构
@@ -116,6 +119,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         public static final String COLUMN_NAME_WORDSMARK = "words_mark";
         public static final String COLUMN_NAME_WRODSLIBRARY = "words_library";
         public static final String COLUMN_NAME_AMOUNT = "amount";
+        public static final String COLUMN_NAME_LEARN_DATE = "learn_date";
     }
     /**
      * 定义Record表结构
@@ -124,11 +128,11 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      */
     public static abstract class RECORDTABLE implements BaseColumns {
         public static final String TABLE_NAME = "record";
-        public static final String COLUMN_NAME_USERNAME = "user_name";
+        public static final String COLUMN_NAME_USERID = "user_id";
         public static final String COLUMN_NAME_LEARNDATE = "learn_date";
         public static final String COLUMN_NAME_EASYWORDSCOUNT = "easy_words_count";
         public static final String COLUMN_NAME_STARWORDSCOUNT = "star_words_count";
         public static final String COLUMN_NAME_DIFFICULTWORDSCOUNT = "difficult_words_count";
-
+        public static final String COLUMN_NAME_WORDSCOUNT = "words_count";
     }
 }

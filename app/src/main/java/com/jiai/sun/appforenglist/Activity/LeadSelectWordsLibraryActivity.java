@@ -73,7 +73,7 @@ public class LeadSelectWordsLibraryActivity extends AppCompatActivity {
 
     public void submitWordsLibrary(View view){
         User user = new User();
-        user.setAmount(20);
+        user.setAmount(10);
         user.setUserName(UserName);
         user.setWordsLibrary("2");
         UserDBManager  userDBManager = new UserDBManager(getApplicationContext());

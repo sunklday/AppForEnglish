@@ -26,16 +26,16 @@ public class RecordRecyclerViewAdapter extends RecyclerView.Adapter<RecordRecycl
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_learning_record,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_record,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.txvRecordDate.setText( recordList.get(position).getLearnDate().toString());
-        holder.txvRecordWordsCount.setText( recordList.get(position).getLearnDate().toString());
-        holder.txvRecordStarWordsCount.setText( recordList.get(position).getLearnDate().toString());
-        holder.txvRecordDifficultWordsCount.setText( recordList.get(position).getLearnDate().toString());
+        holder.txvRecordDate.setText(recordList.get(position).getLearnDate().toString());
+        holder.txvRecordWordsCount.setText(recordList.get(position).getWordsCount().toString());
+        holder.txvRecordStarWordsCount.setText(recordList.get(position).getStarWordsCount().toString());
+        holder.txvRecordDifficultWordsCount.setText(recordList.get(position).getDifficultWordsCount().toString());
 
     }
 
