@@ -13,6 +13,46 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <RelativeLayout
+        android:id="@+id/flt_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d3878787"
+        android:visibility="invisible"
+        android:onClick="disappear">
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+            <Button
+
+                android:id="@+id/button2"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:onClick="startReview"
+                android:text="复习" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="  "/>
+            <Button
+
+                android:id="@+id/button"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:onClick="startLearn"
+                android:text="学习" />
+        </LinearLayout>
+    </RelativeLayout>
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -20,29 +60,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"
-        />
-<RelativeLayout
-    android:id="@+id/flt_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:visibility="invisible"
-    android:background="#50fcfcfc">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="学习"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="复习"
-        android:id="@+id/button2"
-        android:layout_above="@+id/button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-</RelativeLayout>
+        app:menu="@menu/activity_main_drawer" />
+
+
 </android.support.v4.widget.DrawerLayout>

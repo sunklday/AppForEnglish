@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private RelativeLayout relativeLayout;
-
+    private FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,19 +29,14 @@ public class MainActivity extends AppCompatActivity
         relativeLayout = (RelativeLayout) findViewById(R.id.flt_main);
         setSupportActionBar(toolbar);
 
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 relativeLayout.setVisibility(View.VISIBLE);
                 fab.setVisibility(View.INVISIBLE);
-                /*Intent intent=new Intent(getApplicationContext(),ReadyToLearnActivity.class);
-                startActivity(intent);*/
-
             }
         });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -99,9 +94,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
-
+            Intent intent = new Intent(getApplicationContext(),ReviewActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manage) {
-
+            Intent intent = new Intent(getApplicationContext(),SettingActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
@@ -111,5 +108,23 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    public void startLearn(View view){
+        Intent intent = new Intent(getApplicationContext(),ReadyToLearnActivity.class);
+        startActivity(intent);
+        this.relativeLayout.setVisibility(View.INVISIBLE);
+        fab.setVisibility(View.VISIBLE);
+    }
+    public void startReview(View view){
+        Intent intent = new Intent(getApplicationContext(),ReviewActivity.class);
+        startActivity(intent);
+        this.relativeLayout.setVisibility(View.INVISIBLE);
+        fab.setVisibility(View.VISIBLE);
+    }
+    public void disappear(View view){
+        this.relativeLayout.setVisibility(View.INVISIBLE);
+        fab.setVisibility(View.VISIBLE);
     }
 }

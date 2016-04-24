@@ -12,7 +12,7 @@ import com.jiai.sun.appforenglist.R;
 
 public class StartAnimationActivity extends AppCompatActivity {
 
-    private final int SPLASH_DISPLAY_LENGHT = 1000;// 延迟六秒
+    private final int SPLASH_DISPLAY_LENGHT = 2000;// 延迟六秒
     //是否是第一次使用
     private boolean isFirstUse;
     @Override
