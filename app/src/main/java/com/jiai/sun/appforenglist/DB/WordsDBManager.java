@@ -109,12 +109,33 @@ public class WordsDBManager {
         } finally {
             db.close();
         }
+    }
+    public List<Words> findWordbyReview(String count) {
 
-        /*SQLiteDatabase db=this.getWritableDatabase();
-        String where=FIELD_ID+"=?";
-        String[] whereValue={Integer.toString(id)};
-        ContentValues cv=new ContentValues();
-        cv.put(FIELD_TITLE, Title);
-        db.update(TABLE_NAME, cv, where, whereValue);*/
+        SQLiteDatabase db = null;
+        List<Words> list = new ArrayList<>();
+        Words words = null;
+        Cursor cursor = null;
+        try {
+            db = dbOpenHelper.getReadableDatabase();
+            String[] _degree = {"0"};
+            cursor = db.query("words", null, "degree >=?", _degree, null, null, "degree ASC", count);
+            while (cursor.moveToNext()) {
+                words = new Words();
+                words.set_id(Integer.toString(cursor.getInt(cursor.getColumnIndex("_id"))));
+                words.setWord(cursor.getString(cursor.getColumnIndex("word")));
+                words.setMean(cursor.getString(cursor.getColumnIndex("mean")));
+                words.setExample(cursor.getString(cursor.getColumnIndex("example")));
+                words.setDegree(cursor.getString(cursor.getColumnIndex("degree")));
+                words.setCategory(cursor.getString(cursor.getColumnIndex("category")));
+                words.setStar(cursor.getString(cursor.getColumnIndex("star")));
+                list.add(words);
+            }
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+        return list;
     }
 }

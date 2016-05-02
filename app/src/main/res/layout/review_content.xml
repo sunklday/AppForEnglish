@@ -50,17 +50,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-
+                <Button
+                    android:background="@color/abcd"
+                    android:id="@+id/btn_A"
+                    android:text="n.年龄"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="checking"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="   "/>
                 <Button
-                    android:background="#55e485"
+                    android:background="@color/abcd"
                     android:id="@+id/btn_B"
                     android:text="n.年龄"
                     android:layout_width="150dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:onClick="checking"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -78,7 +85,8 @@
                     android:id="@+id/btn_C"
                     android:text="n.意外的"
                     android:layout_width="150dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:onClick="checking"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -88,7 +96,8 @@
                     android:id="@+id/btn_D"
                     android:text="vt.使一致"
                     android:layout_width="150dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:onClick="checking"/>
             </LinearLayout>
         </LinearLayout>
 
