@@ -12,4 +12,13 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
     }
+    @Test
+    public void randowtest() throws Exception {
+
+        for(int i =1 ;i<112;i++){
+            double buttonId = Math.random()*4;
+            System.out.println((int)buttonId);
+
+        }
+    }
 }
