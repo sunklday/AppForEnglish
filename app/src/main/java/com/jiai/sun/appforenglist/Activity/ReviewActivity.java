@@ -137,14 +137,27 @@ public class ReviewActivity extends AppCompatActivity {
         }
     }
 
-    public void next(View view){
-            if(reviewCount<=10){
+    public void next(View view) {
+        if (correct = true) {
+
+            if (reviewCount <= 10) {
                 reviewCount++;
                 initView(reviewCount);
-            }else {
+                correct = false;
+            } else {
+                setDegree();
                 finish();
             }
-
+        }
+        else {
+            return;
+        }
     }
 
+    private void setDegree(){
+        WordsDBManager wordsDBManager = new WordsDBManager(getApplicationContext());
+        for(Words words:list) {
+            wordsDBManager.setDegreeById(Integer.parseInt(words.get_id()));
+        }
+    }
 }

@@ -110,6 +110,24 @@ public class WordsDBManager {
             db.close();
         }
     }
+
+    public void setDegreeById(Integer wordsId){
+
+        SQLiteDatabase db = null;
+        Integer degree = Integer.parseInt(getWorsById(wordsId).getDegree())+1;
+        try {
+            db = dbOpenHelper.getWritableDatabase();
+            String _id = "_id=?";
+            String[] id = {wordsId.toString()};
+            ContentValues cv = new ContentValues();
+            cv.put("degree", degree+"");
+            db.update("words",cv,_id,id);
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+    }
     public List<Words> findWordbyReview(String count) {
 
         SQLiteDatabase db = null;
