@@ -225,5 +225,19 @@ public class WordsDBManager {
 
         return count;
     }
+    public void delectall(){
+        SQLiteDatabase db = null;
+
+
+        try {
+            db = dbOpenHelper.getWritableDatabase();
+            db.delete("words", null, null);
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+
+    }
 
 }

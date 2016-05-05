@@ -43,6 +43,11 @@ public class LearnEnglishCardStackListener implements CardStack.CardEventListene
     public void discarded(int mIndex, int direction) {
         //this callback invoked when dismiss animation is finished.
 
+        /*Context context = this.context;
+        CharSequence text = "Hello toast!";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();*/
 
 
     }

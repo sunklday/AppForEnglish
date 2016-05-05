@@ -69,6 +69,24 @@ public class UserDBManager {
         return user;
     }
 
+
+    public void setWordsLibrary(Integer userid,String wordsLibrary){
+
+        SQLiteDatabase db = null;
+
+        try {
+            db = dbOpenHelper.getWritableDatabase();
+            String _id = "_id=?";
+            String[] id = {userid+""};
+            ContentValues cv = new ContentValues();
+            cv.put("words_library",wordsLibrary);
+            db.update("user",cv,_id,id);
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+    }
  /*   public List<User> findUserById(Integer id){
         List<User> list = new ArrayList<>();
         SQLiteDatabase db = null;
