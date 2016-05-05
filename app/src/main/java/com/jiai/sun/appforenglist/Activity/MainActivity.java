@@ -13,7 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.jiai.sun.appforenglist.DB.WordsDBManager;
 import com.jiai.sun.appforenglist.R;
 
 public class MainActivity extends AppCompatActivity
@@ -21,6 +23,9 @@ public class MainActivity extends AppCompatActivity
 
     private RelativeLayout relativeLayout;
     private FloatingActionButton fab;
+    private TextView txvCountLearn;
+    private TextView txvCountHasMaster;
+    private TextView txvFinish;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +33,9 @@ public class MainActivity extends AppCompatActivity
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         relativeLayout = (RelativeLayout) findViewById(R.id.flt_main);
         setSupportActionBar(toolbar);
-
+        txvCountLearn = (TextView) findViewById(R.id.txt_courntLearn);
+        txvCountHasMaster = (TextView) findViewById(R.id.txv_hasMaster_main);
+        txvFinish = (TextView) findViewById(R.id.txv_finish);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +52,18 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        initDate();
+    }
+    private  void  initDate(){
+        WordsDBManager wordsDBManager = new WordsDBManager(getApplicationContext());
+        double n  = wordsDBManager.getCount();
+        double countLearn = wordsDBManager.getCountBylearn();
+        txvCountLearn.setText((int)countLearn+".");
+        double countOk = wordsDBManager.getCountByOk();
+        txvCountHasMaster.setText((int)countOk+".");
+        double fin = ((countLearn/n)*2+(countOk/n))/3;
+        fin=((int)(fin*1000))/100;
+        txvFinish.setText(fin+"%");
     }
 
     @Override

@@ -12,7 +12,6 @@ public class Words {
     private String category;
     private String star;
     private String learndate;
-
     public String getLearndate() {
         return learndate;
     }

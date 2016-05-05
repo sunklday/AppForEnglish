@@ -29,7 +29,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.ReviewActivity" />
-        <activity android:name=".Activity.SettingActivity" ></activity>
+        <activity android:name=".Activity.SettingActivity" />
+        <activity android:name=".Activity.ReturnReViewAcivity" />
+        <activity android:name=".Activity.WordsLibraryActivity"></activity>
     </application>
-
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 操作sd卡权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 </manifest>

@@ -11,6 +11,7 @@ import com.jiai.sun.appforenglist.DB.RecordDBManager;
 import com.jiai.sun.appforenglist.DB.UserDBManager;
 import com.jiai.sun.appforenglist.R;
 import com.jiai.sun.appforenglist.domain.Record;
+import com.jiai.sun.appforenglist.view.SpaceItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class LearningRecordActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
+
         InitRecordRecyclerView initRecordRecyclerView = new InitRecordRecyclerView();
         initRecordRecyclerView.execute();
     }
@@ -43,7 +45,9 @@ public class LearningRecordActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<Record> recordList) {
              mAdapter = new RecordRecyclerViewAdapter(recordList);
+
             mRecyclerView.setAdapter(mAdapter);
+
         }
     }
 

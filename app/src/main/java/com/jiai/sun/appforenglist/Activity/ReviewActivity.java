@@ -1,5 +1,6 @@
 package com.jiai.sun.appforenglist.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -47,7 +48,8 @@ public class ReviewActivity extends AppCompatActivity {
         list = wordsDBManager.findWordbyReview("15");
         otherMeanList = new ArrayList<>();
         for (int i = 1; i < 50; i++) {
-            otherMeanList.add("mean");
+            Words  words= wordsDBManager.getWorsById((int) (Math.random() * 100));
+            otherMeanList.add(words.getMean());
         }
     }
 
@@ -138,7 +140,7 @@ public class ReviewActivity extends AppCompatActivity {
     }
 
     public void next(View view) {
-        if (correct = true) {
+        if (correct) {
 
             if (reviewCount <= 10) {
                 reviewCount++;
@@ -146,6 +148,8 @@ public class ReviewActivity extends AppCompatActivity {
                 correct = false;
             } else {
                 setDegree();
+                Intent intent = new Intent(this.getApplicationContext(),ReturnReViewAcivity.class);
+                startActivity(intent);
                 finish();
             }
         }

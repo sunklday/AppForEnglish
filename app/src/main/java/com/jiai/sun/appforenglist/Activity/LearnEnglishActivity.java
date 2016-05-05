@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 public class LearnEnglishActivity extends AppCompatActivity {
-    private Button button;
+
     private TextView textView;
     private CardStack mCardStack;
     private CardStackAdapter mCardAdapter ;
@@ -35,17 +35,16 @@ public class LearnEnglishActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_english);
         mCardStack = (CardStack)findViewById(R.id.csk_englishCard);
-        button = (Button) findViewById(R.id.btn_learnEnglishActivityComeBack);
+
         textView = (TextView) findViewById(R.id.txv_learnEnglishActivityComeBack);
         mCardStack.setContentResource(R.layout.learn_english_card_content);
         mCardStack.setStackMargin(20);
-
         Bundle bundle = getIntent().getExtras();
         wordsIdArrayList = (ArrayList<Integer>) bundle.get("wordsIdArrayList");
 
         InitCardStack initCardStack = new InitCardStack();
         initCardStack.execute();
-
+        mCardStack.bringToFront();
     }
 
     class InitCardStack extends AsyncTask<Void,Void,List<Words>>{
@@ -66,7 +65,7 @@ public class LearnEnglishActivity extends AppCompatActivity {
             mCardStack.setListener(myListener);
             mCardStack.setAdapter(mCardAdapter);
             textView.setVisibility(View.VISIBLE);
-            button.setVisibility(View.VISIBLE);
+
         }
     }
     private List<Words> initData(){
@@ -88,6 +87,8 @@ public class LearnEnglishActivity extends AppCompatActivity {
         WordsDBManager wordsDBManager = new WordsDBManager(getApplicationContext());
         for (Words word:wordsList) {
             word.setDegree("1");
+            Date date = new Date();
+            word.setLearndate(date.toString());
             wordsDBManager.updateWord(word);
         }
         Record record  = new Record();

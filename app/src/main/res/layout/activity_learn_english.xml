@@ -22,18 +22,10 @@
         android:textSize="50dp"
         android:text="完成"
         android:id="@+id/txv_learnEnglishActivityComeBack"
-        android:visibility="invisible"
-        android:layout_above="@+id/btn_learnEnglishActivityComeBack"
-        android:layout_centerHorizontal="true" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="返回"
-        android:id="@+id/btn_learnEnglishActivityComeBack"
-        android:visibility="invisible"
+        android:onClick="comeBack"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="comeBack"/>
+        android:layout_centerHorizontal="true" />
+
     <com.wenchao.cardstack.CardStack
         android:layout_below="@+id/txv_learnEnglishTitle"
         android:layout_width="wrap_content"

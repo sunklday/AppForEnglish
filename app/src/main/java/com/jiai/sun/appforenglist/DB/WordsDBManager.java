@@ -31,9 +31,14 @@ public class WordsDBManager {
 
     public List<Words> getWorsByAmount(Integer Amount){
         List<Words> list = new ArrayList<>();
-         for(int i = 1;i<=Amount;i++){
-             double id=Math.random()*100;//100是id计数，以后要改，加一个wordlibrary表。
-             Words words = getWorsById((int)id);
+         for(int i = 1;i<=Amount;){
+             double id=Math.random()*200;//100是id计数，以后要改，加一个wordlibrary表。
+             Words words = new Words();
+             words = getWorsById((int)id);
+             if(words.getDegree()!=null){
+                 continue;
+             }
+             i++;
              list.add(words);
          }
         return list;
@@ -103,6 +108,7 @@ public class WordsDBManager {
             cv.put("mean", words.getMean());
             cv.put("category", words.getCategory());
             cv.put("star",words.getStar());
+            cv.put("learn_date",words.getLearndate());
             db.update("words",cv,_id,id);
         } catch (Exception e) {
 
@@ -156,4 +162,68 @@ public class WordsDBManager {
         }
         return list;
     }
+    public Integer getCountBylearn(){
+        SQLiteDatabase db = null;
+
+        Integer count = null;
+        Cursor cursor = null;
+        try {
+            db = dbOpenHelper.getReadableDatabase();
+            String[] _degree = {"0"};
+
+            cursor = db.rawQuery("SELECT COUNT(*) FROM words where degree>?",_degree);
+            if (cursor.moveToFirst()) {
+                count = cursor.getInt(0);
+            }
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+
+        return count;
+    }
+    public Integer getCountByOk(){
+        SQLiteDatabase db = null;
+
+        Integer count = null;
+        Cursor cursor = null;
+        try {
+            db = dbOpenHelper.getReadableDatabase();
+            String[] _degree = {"1"};
+
+            cursor = db.rawQuery("SELECT COUNT(*) FROM words where degree>?",_degree);
+            if (cursor.moveToFirst()) {
+                count = cursor.getInt(0);
+            }
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+
+        return count;
+    }
+    public Integer getCount(){
+        SQLiteDatabase db = null;
+
+        Integer count = null;
+        Cursor cursor = null;
+        try {
+            db = dbOpenHelper.getReadableDatabase();
+            String[] _degree = {"3"};
+
+            cursor = db.rawQuery("SELECT COUNT(*) FROM words",null);
+            if (cursor.moveToFirst()) {
+                count = cursor.getInt(0);
+            }
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+
+        return count;
+    }
+
 }
