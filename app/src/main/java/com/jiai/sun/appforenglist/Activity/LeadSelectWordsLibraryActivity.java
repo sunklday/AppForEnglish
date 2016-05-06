@@ -52,6 +52,7 @@ public class LeadSelectWordsLibraryActivity extends AppCompatActivity {
                     words.setWord(str[0]);
                     words.setMean(str[1]);
                     words.setExample(str[2]);
+                    words.setDegree("0");
                     wordsDBManager.insertWords(words);
                     for (int j = 0; j < str.length; j++) {
                         System.out.println(str[j] + " " + j);

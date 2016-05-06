@@ -239,5 +239,88 @@ public class WordsDBManager {
         }
 
     }
+    /**
+     * 找新单词
+     */
+    public List<Words> getNewWorsByAmount(Integer Amount){
+        List<Words> list = new ArrayList<>();
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        String[] _degree = {"0"};
+        Words words;
+        try {
+            db = dbOpenHelper.getReadableDatabase();
+            cursor = db.query("words", null, "degree =?", _degree, null, null, "_id ASC",Amount+"");
+            while (cursor.moveToNext()) {
+                words = new Words();
+                words.set_id(Integer.toString(cursor.getInt(cursor.getColumnIndex("_id"))));
+                words.setWord(cursor.getString(cursor.getColumnIndex("word")));
+                words.setMean(cursor.getString(cursor.getColumnIndex("mean")));
+                words.setExample(cursor.getString(cursor.getColumnIndex("example")));
+                words.setDegree(cursor.getString(cursor.getColumnIndex("degree")));
+                words.setCategory(cursor.getString(cursor.getColumnIndex("category")));
+                words.setStar(cursor.getString(cursor.getColumnIndex("star")));
+                list.add(words);
+            }
+        } catch (Exception e) {
 
+        } finally {
+            db.close();
+        }
+        return list;
+    }
+    public List<Words> getOldWorsByTime(){
+        List<Words> list = new ArrayList<>();
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        String[] _degree = {"1"};
+        Words words;
+        try {
+            db = dbOpenHelper.getReadableDatabase();
+            cursor = db.query("words", null, "degree =?", _degree, null, null, "learn_date ASC","5");
+            while (cursor.moveToNext()) {
+                words = new Words();
+                words.set_id(Integer.toString(cursor.getInt(cursor.getColumnIndex("_id"))));
+                words.setWord(cursor.getString(cursor.getColumnIndex("word")));
+                words.setMean(cursor.getString(cursor.getColumnIndex("mean")));
+                words.setExample(cursor.getString(cursor.getColumnIndex("example")));
+                words.setDegree(cursor.getString(cursor.getColumnIndex("degree")));
+                words.setCategory(cursor.getString(cursor.getColumnIndex("category")));
+                words.setStar(cursor.getString(cursor.getColumnIndex("star")));
+                list.add(words);
+            }
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+        return list;
+    }
+    public List<Words> getOldWorsByTimeDesc(){
+        List<Words> list = new ArrayList<>();
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        String[] _degree = {"1"};
+        Words words;
+        try {
+            db = dbOpenHelper.getReadableDatabase();
+            cursor = db.query("words", null, "degree =?", _degree, null, null, "learn_date DESC","5");
+            while (cursor.moveToNext()) {
+                words = new Words();
+                words.set_id(Integer.toString(cursor.getInt(cursor.getColumnIndex("_id"))));
+                words.setWord(cursor.getString(cursor.getColumnIndex("word")));
+                words.setMean(cursor.getString(cursor.getColumnIndex("mean")));
+                words.setExample(cursor.getString(cursor.getColumnIndex("example")));
+                words.setDegree(cursor.getString(cursor.getColumnIndex("degree")));
+                words.setCategory(cursor.getString(cursor.getColumnIndex("category")));
+                words.setStar(cursor.getString(cursor.getColumnIndex("star")));
+                list.add(words);
+            }
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+        return list;
+    }
 }

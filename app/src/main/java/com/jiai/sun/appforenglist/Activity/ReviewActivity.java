@@ -48,8 +48,13 @@ public class ReviewActivity extends AppCompatActivity {
         list = wordsDBManager.findWordbyReview("15");
         otherMeanList = new ArrayList<>();
         for (int i = 1; i < 50; i++) {
-            Words  words= wordsDBManager.getWorsById((int) (Math.random() * 100));
-            otherMeanList.add(words.getMean());
+            Words  words= wordsDBManager.getWorsById((int) (Math.random() * 100)+1);
+            if(words.getMean()==null){
+                otherMeanList.add("其他");
+            }else {
+                otherMeanList.add(words.getMean());
+            }
+
         }
     }
 
@@ -161,7 +166,7 @@ public class ReviewActivity extends AppCompatActivity {
     private void setDegree(){
         WordsDBManager wordsDBManager = new WordsDBManager(getApplicationContext());
         for(Words words:list) {
-            wordsDBManager.setDegreeById(Integer.parseInt(words.get_id()));
+            wordsDBManager.setDegreeById(Integer.parseInt(words.get_id())+1);
         }
     }
 }

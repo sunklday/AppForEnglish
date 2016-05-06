@@ -86,7 +86,8 @@ public class LearnEnglishActivity extends AppCompatActivity {
     public void comeBack(View view){
         WordsDBManager wordsDBManager = new WordsDBManager(getApplicationContext());
         for (Words word:wordsList) {
-            word.setDegree("1");
+            Integer degree=Integer.valueOf(word.getDegree())+1;
+            word.setDegree(degree+"");
             Date date = new Date();
             word.setLearndate(date.toString());
             wordsDBManager.updateWord(word);

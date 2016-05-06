@@ -33,13 +33,13 @@ public class WordsLibraryActivity extends AppCompatActivity {
     String picUrl ="http://img01.mifile.cn/images/accs/xmjsb_11.jpg";
     String saveFileName;
     String filename;
-
+    private Button mbutton;
     Context context ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_words_library);
-
+        mbutton = (Button) findViewById(R.id.btn_selectWordsLibrary);
 
     }
 
@@ -69,6 +69,7 @@ public class WordsLibraryActivity extends AppCompatActivity {
         Button button = (Button) view;
         filename = button.getText().toString();
         button.setBackgroundColor(getResources().getColor(R.color.correct_true));
+        mbutton.setVisibility(View.VISIBLE);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -149,6 +150,7 @@ public class WordsLibraryActivity extends AppCompatActivity {
                     words.setMean(str[1]);
                     words.setExample(str[2]);
                     words.setCategory(filename);
+                    words.setDegree("0");
                     wordsDBManager.insertWords(words);
                     for (int j = 0; j < str.length; j++) {
                         System.out.println(str[j] + " " + j);

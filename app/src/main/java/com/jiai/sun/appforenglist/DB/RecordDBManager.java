@@ -80,4 +80,25 @@ public class RecordDBManager {
                 db.close();
             }
     }
+
+    public Integer getRecordCount(){
+        SQLiteDatabase db = null;
+
+        Integer count = null;
+        Cursor cursor = null;
+        try {
+            db = dbOpenHelper.getReadableDatabase();
+
+            cursor = db.rawQuery("SELECT COUNT(*) FROM record",null);
+            if (cursor.moveToFirst()) {
+                count = cursor.getInt(0);
+            }
+        } catch (Exception e) {
+
+        } finally {
+            db.close();
+        }
+
+        return count;
+    }
 }

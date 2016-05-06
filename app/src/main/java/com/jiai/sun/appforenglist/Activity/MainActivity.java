@@ -2,6 +2,7 @@ package com.jiai.sun.appforenglist.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         double countOk = wordsDBManager.getCountByOk();
         txvCountHasMaster.setText((int)countOk+".");
         double fin = ((countLearn/n)*2+(countOk/n))/3;
-        fin=((int)(fin*1000))/100;
+        fin=((int)(fin*1000))/10;
         txvFinish.setText(fin+"%");
     }
 
@@ -105,9 +106,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(),ReadyToLearnActivity.class);
             startActivity(intent);
-            finish();
         } else if (id == R.id.nav_learning_record) {
             Intent intent = new Intent(getApplicationContext(),LearningRecordActivity.class);
             startActivity(intent);
@@ -145,5 +145,17 @@ public class MainActivity extends AppCompatActivity
     public void disappear(View view){
         this.relativeLayout.setVisibility(View.INVISIBLE);
         fab.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initDate();
+    }
+
+    @Override
+    public void finish() {
+
+        System.exit(0);
     }
 }

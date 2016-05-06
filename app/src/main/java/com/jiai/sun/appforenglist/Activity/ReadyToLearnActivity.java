@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.jiai.sun.appforenglist.Adapter.ReadyToLearnRecyclerViewAdapter;
+import com.jiai.sun.appforenglist.DB.RecordDBManager;
 import com.jiai.sun.appforenglist.DB.UserDBManager;
 import com.jiai.sun.appforenglist.DB.WordsDBManager;
 import com.jiai.sun.appforenglist.R;
@@ -67,7 +68,12 @@ public class ReadyToLearnActivity extends AppCompatActivity {
         UserDBManager userDBManager = new UserDBManager(getApplicationContext());
         amount = userDBManager.findUserById(1).getAmount();
         WordsDBManager wordsDBManager = new WordsDBManager(getApplicationContext());
-        wordsList= wordsDBManager.getWorsByAmount(amount);
+        RecordDBManager recordDBManager = new RecordDBManager(getApplicationContext());
+        wordsList= wordsDBManager.getNewWorsByAmount(amount);
+        if(recordDBManager.getRecordCount()>2){
+            wordsList.addAll(wordsDBManager.getOldWorsByTime());
+            wordsList.addAll(wordsDBManager.getOldWorsByTimeDesc());
+        }
         return wordsList;
     }
 
@@ -78,7 +84,7 @@ public class ReadyToLearnActivity extends AppCompatActivity {
      */
     public void startLearnEnglishActivity(View view){
         ArrayList<Integer> idArrayList = new ArrayList<>();
-        for (int i =0;i<amount;i++){
+        for (int i =0;i<wordsList.size();i++){
             idArrayList.add(Integer.valueOf(wordsList.get(i).get_id()));
         }
         Bundle bundle = new Bundle();
